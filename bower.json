@@ -1,9 +1,10 @@
 {
   "name": "marked",
-  "version": "0.3.4",
-  "homepage": "https://github.com/chjj/marked",
+  "version": "0.3.6",
+  "homepage": "https://github.com/rumkin/marked",
   "authors": [
-    "Christopher Jeffrey <chjjeffrey@gmail.com>"
+    "Christopher Jeffrey <chjjeffrey@gmail.com>",
+    "Rumkin <dev@rumk.in>"
   ],
   "description": "A markdown parser built for speed",
   "keywords": [
