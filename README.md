@@ -373,11 +373,18 @@ starts with '@', plugin name and params in round braces. Plugin could contain
 block of data. Data block should preserve indentation it allow to add any
 content with any markup inside of the block.
 
+
 ```
 @uml(sequence)
   Alice->Bob: Hi, Bob!
   Bob->Alice: Hi, Alice!
 ```
+
+Plugins can also be inline if they starts with '@@'. Example:
+```
+Fork me at @@github(username/repo)
+```
+
 If plugin not exists it's just ignoring.
 
 ### Define plugin
@@ -402,6 +409,19 @@ var renderer = new marked.Renderer({
 renderer.plugins.audio = function(params) {
   return `<audio src="${params}"/>`;
 };
+
+// If the plugin is called by the inline way 
+// then 'block' is equals to 'false'
+renderer.plugins.github = function(params, block) {
+    // Inline
+    if (block === false) {
+        return `<a href="github.com/${params}">${params}</a>`;       
+    }
+    // Block
+    else {
+        return `<div class="github-block"><img src="...">${params}</div>`;
+    }
+}
 ```
 
 ## Running Tests & Contributing
